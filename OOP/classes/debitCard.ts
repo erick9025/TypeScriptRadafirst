@@ -1,5 +1,5 @@
 // A class is a blueprint that will be used to generate objects (instances)
-class DebitCard {
+export class DebitCard {
 
     // One class can have
     //...1) attributes/properties
@@ -11,21 +11,21 @@ class DebitCard {
     public firstName: string; // Since this parameter is assigned in the constructor is not necessary anymore to assign it with default value
     public lastName: string;  // Since this parameter is assigned in the constructor is not necessary anymore to assign it with default value
     public cardNumber: string; // 16x  // Since this parameter is assigned in the constructor is not necessary anymore to assign it with default value
-    public nip: number = 0;
+    public nip: number = 1234;
     public expirationDate : Date = new Date(1990, 1, 1);
 
     //........................... CONSTRUCTOR ...........................
     constructor(firstName: string, lastName: string, cardNumber: string) { // constructor is the method that will create an instance/object from the class and assign it with params
         //4152000011119876    <--- sample
         //012345679           <--- index (base-0)
-        const allowedChars: string[] =  [ "0", "1", "2", "3", "4", "5", "6", "8", "8", "9" ]; // The easiest way is use REGEX (Regular Expressions)        
+        const allowedChars: string[] =  [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ]; // The easiest way is use REGEX (Regular Expressions)        
 
         if(cardNumber.length !== 16) {
             throw new Error("Card number must be l6 chars long");
         }
         
         for(let index = 0; index < cardNumber.length; index++) {
-            const currentChar: string = cardNumber.substring(index);
+            const currentChar: string = cardNumber.charAt(index);
 
             // When number = "4152000011119876", first iteration will have a "4"
             if(allowedChars.includes(currentChar)) {
