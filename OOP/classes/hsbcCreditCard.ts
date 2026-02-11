@@ -1,3 +1,4 @@
+import { TestUtilities } from "../utils/testUtilities";
 import { CreditCard } from "./creditCard";
 
 export class HSBCCreditCard extends CreditCard {
@@ -13,5 +14,9 @@ export class HSBCCreditCard extends CreditCard {
 
     public deposit(amount: number): void{
         this.balance += amount;
+    }
+
+    public checkBalance(): void{
+        TestUtilities.logMessage("Tu balance actual para tu tarjeta de crédito HSBC es: " + this.formatCurrency(this.balance));
     }
 }
