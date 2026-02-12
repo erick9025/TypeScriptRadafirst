@@ -21,4 +21,10 @@ export class SantanderCreditCard extends CreditCard {
     public checkBalance(): void{
         TestUtilities.logMessage("Your current balance for your Santander credit card is: " + this.formatCurrency(this.balance));
     }
+
+    public override printCardInfo(): void {
+        super.printCardInfo(); // with SUPER: Combine parent + child implementations
+        this.checkBalance();
+        TestUtilities.logMessage("Full name for your Santander Card: " + TestUtilities.returnFullNameFormatted(this));        
+    }
 }

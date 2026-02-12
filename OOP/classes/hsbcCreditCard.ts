@@ -19,4 +19,10 @@ export class HSBCCreditCard extends CreditCard {
     public checkBalance(): void{
         TestUtilities.logMessage("Tu balance actual para tu tarjeta de crédito HSBC es: " + this.formatCurrency(this.balance));
     }
+
+    public override printCardInfo(): void {
+        // Override parent implementation with child implementation
+        this.checkBalance();
+        TestUtilities.logMessage("El propietario de esta tarjeta HBSC es: " + TestUtilities.returnFullNameFormatted(this));
+    }
 }

@@ -1,3 +1,5 @@
+import { CreditCard } from "../classes/creditCard";
+
 export class TestUtilities {
 
     // STATIC keywords allows me to call this method with no need of an instance of a class (DIRECTLY)
@@ -37,5 +39,9 @@ export class TestUtilities {
         const [time, period] = timePart.split(' ');
 
         return `${datePart} @ ${time}.${milliseconds} ${period}`;
+    }
+
+    public static returnFullNameFormatted(creditCard: CreditCard) : string {
+        return creditCard.lastName + ", " + creditCard.firstName;
     }
 }

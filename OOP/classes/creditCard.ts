@@ -8,6 +8,8 @@ import { TestUtilities } from "../utils/testUtilities";
 
 export abstract class CreditCard{
     protected balance!: number; // "!" lets the language/machine know that this variable may not be initialized
+    public firstName!: string;
+    public lastName!: string;
 
     public abstract withdraw(amount: number): void;
     public abstract deposit(amount: number): void;
@@ -21,4 +23,9 @@ export abstract class CreditCard{
     protected formatCurrency(value: number): string {
         return TestUtilities.formatCurrency(value);
     };
+
+    public printCardInfo(): void {
+        this.checkBalance();
+        TestUtilities.logMessage("Full name: " + TestUtilities.returnFullNameFormatted(this));
+    }
 }
