@@ -10,6 +10,8 @@ export abstract class CreditCard{
     protected balance!: number; // "!" lets the language/machine know that this variable may not be initialized
     public firstName!: string;
     public lastName!: string;
+    public cardNumber16!: string;
+    public expirationDate!: Date;
 
     public abstract withdraw(amount: number): void;
     public abstract deposit(amount: number): void;
